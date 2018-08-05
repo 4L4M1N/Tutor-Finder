@@ -26,6 +26,8 @@ START TRANSACTION;
 --
 -- Table structure for table `admin_info`
 --
+CREATE DATABASE IF NOT EXISTS `tutorfinder` DEFAULT CHARACTER SET utf16 COLLATE utf16_general_ci;
+USE `tutorfinder`;
 
 CREATE TABLE `admin_info` (
   `id` int(10) NOT NULL,
