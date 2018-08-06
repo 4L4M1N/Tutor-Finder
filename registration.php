@@ -1,27 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Registration system PHP and MySQL</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+
+  
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+ <script type="text/javascript">
+function showText(num)
+{
+if(num==0){
+document.getElementById('nidnumber').style.display='none';
+document.getElementById('hid').style.display='none';
+document.getElementById('dob1').style.display='block';
+document.getElementById('dob').style.display='block';
+document.getElementById('ins1').style.display='block';
+document.getElementById('ins').style.display='block';
+
+}
+else if(num==1)
+{
+	document.getElementById('dob1').style.display='none';
+document.getElementById('dob').style.display='none';
+document.getElementById('ins1').style.display='none';
+document.getElementById('ins').style.display='none';
+document.getElementById('nidnumber').style.display='block';
+document.getElementById('hid').style.display='block';
+
+}
+else if(num==2)
+{
+	document.getElementById('dob1').style.display='none';
+document.getElementById('dob').style.display='none';
+document.getElementById('nidnumber').style.display='block';
+document.getElementById('hid').style.display='block';
+document.getElementById('ins1').style.display='block';
+document.getElementById('ins').style.display='block';
+
+}
+
+return;
+}
+</script>
 </head>
 <body>
   <div class="header">
-  	<h2>Register in Tuioner</h2>
+  	<h2>Register in Tutor Finder</h2>
   </div>
 	
-  <form method="post" action="registration.php">
+  <form  name="index" method="post" action="Registration-handler.php">
 
+	
 	<div class="input-group">
-	 <lable>Registering For</lable>
+	 <lable>Registering For (Please Click Below)</lable>
 </div>
-<div class="input-group">
-<input list="user">
-  <datalist id="user">
-    <option value="Studnet">
-    <option value="Tutor">
-    <option value="Gaurdian">
-  </datalist> 
-		</div>
+<div>
+  <input type="radio" onclick="showText(0)" name="user" value="Student">Student
+  <input type="radio" onclick="showText(1)" name="user" value="Gaurdian">Gaurdian
+  <input type="radio" onclick="showText(2)" name="user" value="Tutor">Tutor
+	</div>
 
 		<div class="input-group">
   	  <label>Fullname</label>
@@ -29,12 +66,12 @@
   	</div>
 
   	<div class="input-group">
-  	  <label>Date of Birth</label>
-  	  <input type="Date" name="dob">
+  	  <label id="dob">Date of Birth</label>
+  	  <input id="dob1" type="Date" name="dob">
   	</div>
   	<div class="input-group">
-  	  <label>Education</label>
-  	  <input type="text" name="education">
+  	  <label id="ins">Institution Name</label>
+  	  <input id="ins1" type="text" name="ins">
   	</div>  
       <div class="input-group">
   	  <label>Email</label>
@@ -42,11 +79,11 @@
   	</div>
 		<div class="input-group">
   	  <label>Contatct Number</label>
-  	  <input type="number" name="contactnumber">
+  	  <input type="text" name="contactnumber">
   	</div>
 		<div class="input-group">
-  	  <label>NID Number</label>
-  	  <input type="number" name="nidnumber">
+  	  <label id="hid">NID Number</label>
+  	  <input type="text" id ="nidnumber" name="nidnumber">
   	</div>  
       <div class="input-group">
   	  <label>Address</label>
