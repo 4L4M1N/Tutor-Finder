@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require 'config.php';
 
 $fullname=$_POST['fname'];
@@ -10,13 +10,15 @@ $nid=$_POST['nidnumber'];
 $address=$_POST['address'];
 $dob=$_POST['dob'];
 $val = $_POST["user"];
+$_SESSION["phn"] = $contact;
+$_SESSION["usr"] = $val;
 if($val == "Student")
 {
 $statement="insert into student_info(fullname,institutionname,g_phone,email,address,dob) values ('$fullname','$ins','$contact','$email','$address','$dob')";
 if(mysqli_query($conn,$statement))
 {
     echo "Registration sucessful";
-	//header('location:home.php');
+	header('location:rusernamepas.php');
 }
 else{
     mysqli_error($conn);}
@@ -28,7 +30,7 @@ else if($val == "Gaurdian")
     if(mysqli_query($conn,$statement))
     {
         echo "Registration sucessful";
-        //header('location:home.php');
+        header('location:rusernamepas.php');
     }
     else{
         mysqli_error($conn);}
@@ -39,8 +41,8 @@ else if($val == "Gaurdian")
         $statement="insert into tutor_info(fullname,institutionname,phone,email,nid,address) values ('$fullname','$ins','$contact','$email','$nid','$address')";
         if(mysqli_query($conn,$statement))
         {
-            echo "Registration sucessful";
-            //header('location:home.php');
+            //echo "Registration sucessful";
+            header('location:rusernamepas.php');
         }
         else{
             mysqli_error($conn);}
@@ -50,7 +52,7 @@ else if($val == "Gaurdian")
         {
             echo "somesthing went wrong";
         }
-
+    
 
 
 ?>
