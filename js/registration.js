@@ -75,6 +75,11 @@ function validate()
             return false;
          }
 
+         if(document.getElementById('phn_status').innerHTML== "Phoneno Already Exist"){
+             return false;
+         }
+
+
          return( true );
         }
 
@@ -117,6 +122,8 @@ function validate()
                        document.getElementById("cerror").innerHTML = text;
                    return false;
                 }
+
+
        
                 if( document.index.nidnumber.value == "" ||
                 isNaN( document.index.nidnumber.value )==true ||
@@ -137,8 +144,13 @@ function validate()
                        document.getElementById("aerror").innerHTML = text;
                    return false;
                 }
-       
+                if(document.getElementById('phn_status').innerHTML== "Phoneno Already Exist"){
+                    return false;
+                }
+
+
                 return( true );
+
         }
 
             else if(document.getElementById("r3").checked==true)
@@ -208,7 +220,10 @@ function validate()
                        document.getElementById("aerror").innerHTML = text;
                    return false;
                 }
-       
+                if(document.getElementById('phn_status').innerHTML== "Phoneno Already Exist"){
+                    return false;
+                }
+
                 return( true );
         }
         else 
@@ -217,4 +232,36 @@ function validate()
                 return(false);
         }
 
+}
+
+function checkphone()
+{
+ var phnverify=document.getElementById( "veriphn" ).value;
+	
+ if(phnverify)
+ {
+  $.ajax({
+  type: 'post',
+  url: 'checkphn.php',
+  data: {
+   user_phone:phnverify,
+  },
+  success: function (response) {
+   $( '#phn_status' ).html(response);
+   if(response=="OK")	
+   {
+    return true;	
+   }
+   else
+   {
+    return false;	
+   }
+  }
+  });
+ }
+ else
+ {
+  $( '#phn_status' ).html("");
+  return false;
+ }
 }
