@@ -3,6 +3,7 @@
 <head>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
  <script type="text/javascript">
 
 function showText(num)
@@ -39,6 +40,9 @@ document.getElementById('ins').style.display='block';
 
 return;
 }
+
+
+
 </script>
 <script src="js/registration.js"></script>
 </head>
@@ -84,8 +88,9 @@ return;
   	</div>
 		<div class="input-group">
   	  <label>Contatct Number</label>
-			<input type="text" name="contactnumber">
+			<input type="text" name="contactnumber" id="veriphn" onkeyup="checkphone();">
 			<p id="cerror" style="color:red;"></p>
+			<span id="phn_status"></span>
   	</div>
 		<div class="input-group">
   	  <label id="hid">NID Number</label>
