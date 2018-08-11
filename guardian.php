@@ -13,7 +13,7 @@
     <div class="topnav" id="myTopnav">
         <a href="#home" class="active">Home</a>
         <a href="#job">Search Tutor</a>
-        <a href="post.php">Post</a>
+        <a href="sgpost.php">Post</a>
         <a href="#profile">My Profile</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
