@@ -40,7 +40,7 @@
 
 
         <div class="container">
-                <form action="tutorCreatePost.php" name="post" onsubmit="return(validate());">
+                <form name="post" method="post" action="post-handler.php" onsubmit="return(validate());">
                 
                   <div class="row">
                     <div class="col-25">

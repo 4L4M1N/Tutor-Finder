@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if((isset($_SESSION['un'])) && (isset($_SESSION['name']))){
+      $userId = $_SESSION['un'];
+      $userType = $_SESSION['name'];
+    }else {
+      header("location:login.php");
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +49,7 @@
 
 
         <div class="container">
-                <form action="/action_page.php" name="sgpost" onsubmit="return(validate());">
+                <form name="sgpost" method="post" action="post-handler.php" onsubmit="return(validate());">
                 
                   <div class="row">
                     <div class="col-25">
