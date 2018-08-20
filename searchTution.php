@@ -9,6 +9,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     
@@ -22,12 +24,12 @@
 }
 
 .sidenav {
-    width: 130px;
+    width: 350px;
     position: fixed;
     z-index: 1;
     top: 52px;
-    left: 0px;
-    background: #eee;
+    left: 10px;
+    
     overflow-x: hidden;
     padding: 8px 0;
 }
@@ -46,9 +48,12 @@
 
 .done {
    
-    margin-left: 140px; /* Same width as the sidebar + left position in px */
+    margin-left: 400px; /* Same width as the sidebar + left position in px */
     font-size: 28px; /* Increased text to enable scrolling */
     padding: 0px 10px;
+}
+.btn-info {
+    margin-left:20px;
 }
 
 @media screen and (max-height: 450px) {
@@ -75,16 +80,45 @@
 </nav>
 
 <div class="sidenav">
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#clients">Clients</a>
-  <a href="#contact">Contact</a>
+        
+        <h3>Search Options</h3>
+        <br>
+        <div class="form-group">
+        <label for="sel1">Search By Divisions:</label>
+        <select class="form-control" id="searchDivi">
+            <option>Dhaka</option>
+            <option>Chittagong</option>
+            <option>Khulna</option>
+            <option>Rangpur</option>
+            <option>Barisal</option>
+            <option>Sylet</option>
+            <option>Rajshahi</option>
+        </select>
+        
+        </div> 
+        <input type="submit" class="btn btn-info" value="Search">
+        
+
+        <div class="form-group">
+        <br>
+        <label for="sel1">Search By Medium:</label>
+        <select class="form-control" id="searchMedium">
+            <option>1</option>
+            <option>Bangla</option>
+            <option>English</option>
+            
+        </select>
+        
+        </div> 
+        <input type="submit" class="btn btn-info" value="Search">
+
+
 </div>
 
 <div class="done">
 <?php
 //Columns must be a factor of 12 (1,2,3,4,6,12)
-$numOfCols = 4;
+$numOfCols = 3;
 $rowCount = 0;
 $bootstrapColWidth = 12 / $numOfCols;
 ?> 
@@ -104,15 +138,20 @@ $bootstrapColWidth = 12 / $numOfCols;
 				 </div>
                 <div class="card-body info">
                     <div class="title">
-                        <a href="#"><?php echo $row['post_id']; ?></a>
+                        <a href="#"><b>Post Id: </b><?php echo $row['post_id']; ?></a>
                     </div>
-					<div class="desc"> <a target="_blank" href="<?php echo "#"; ?>"><?php echo $row['g_id']; ?></a></div>		
-                    <div class="desc"><?php echo $row['subjects']; ?></div>      
-                    <div class="desc"><?php echo $row['medium']; ?></div> 
-                    <div class="desc"><?php echo $row['salary']; ?></div> 
-                    <div class="desc"><?php echo $row['divisions']; ?></div> 
-                    <div class="desc"><?php echo $row['address']; ?></div> 
-                    <div class="desc"><?php echo $row['dateTime']; ?></div> 
+					<div class="desc"><b>Guardian Id: </b> <a target="_blank" href="<?php echo "gProfile.php?id=$row[g_id]"; ?>"><?php echo $row['g_id']; ?></a></div>		
+                    <div class="desc"><b>Subject: </b><?php echo $row['subjects']; ?></div>      
+                    <div class="desc"><b>Medium: </b><?php echo $row['medium']; ?></div> 
+                    <div class="desc"><b>Salary: </b><?php echo $row['salary']; ?></div> 
+                    <div class="desc"><b>Division: </b><?php echo $row['divisions']; ?></div> 
+                    <div class="desc"><b>Address: </b><?php echo $row['address']; ?></div> 
+                    <div class="desc"><b>Post Date: </b><?php echo $row['dateTime']; ?></div> 
+                    <?php 
+                    echo "<a href=\"applyPost.php?id=$row[g_id]\" class=\"btn btn-info\" role=\"button\">Apply</a>" 
+
+                    ?>
+                    
                     	
                     							
                 </div>
