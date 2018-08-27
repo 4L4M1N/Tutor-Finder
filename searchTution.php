@@ -84,34 +84,25 @@
         <h3>Search Options</h3>
         <br>
         <div class="form-group">
+        <form action="#" method="post">
         <label for="sel1">Search By Divisions:</label>
-        <select class="form-control" id="searchDivi">
-            <option>Dhaka</option>
-            <option>Chittagong</option>
-            <option>Khulna</option>
-            <option>Rangpur</option>
-            <option>Barisal</option>
-            <option>Sylet</option>
-            <option>Rajshahi</option>
+        <select class="form-control" name="searchDivi">
+                        <option value="all" selected>[choose yours]</option>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Chittagong">Chittagong</option>
+                        <option value="Rajshahi">Rajshahi</option>
+                        <option value="Rangpur">Rangpur</option>
+                        <option value="Syleht">Syleht</option>
+                        <option value="Barisal">Barisal</option>
+                        <option value="Khulna">Khulna</option>
         </select>
         
         </div> 
-        <input type="submit" class="btn btn-info" value="Search">
         
-
-        <div class="form-group">
-        <br>
-        <label for="sel1">Search By Medium:</label>
-        <select class="form-control" id="searchMedium">
-            <option>1</option>
-            <option>Bangla</option>
-            <option>English</option>
-            
-        </select>
         
-        </div> 
-        <input type="submit" class="btn btn-info" value="Search">
-
+       
+        <input type="submit" name="submit" class="btn btn-info" value="Search">
+</form>
 
 </div>
 
@@ -126,7 +117,28 @@ $bootstrapColWidth = 12 / $numOfCols;
 <div class="row">
 		
 			<?php
-			$sql = "SELECT post_id, g_id, subjects, medium, salary, divisions, address, dateTime FROM g_post";
+            if(isset($_POST['submit']))
+            {
+                $division = $_POST['searchDivi'];
+                if($division == "all"){$test = "all";}
+                else{
+                $test = "one";}
+            }else {
+                $test="all";
+            }
+            
+            $sql = "SELECT post_id, g_id, subjects, medium, salary, divisions, address, dateTime FROM g_post";
+            switch($test){
+                case "one":
+                    $sql .= " where divisions ='". $division. "'"; 
+                    break;
+                case "all":
+                    $sql .=""; 
+                    break;    
+                default:
+                    $sql .=" where divisions IS NOT NULL";    
+
+            }
 			$rows = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));			
 			while($row = mysqli_fetch_assoc($rows)){
             ?>
@@ -149,7 +161,7 @@ $bootstrapColWidth = 12 / $numOfCols;
                     <div class="desc"><b>Post Date: </b><?php echo $row['dateTime']; ?></div> 
                     <?php 
                     echo "<a href=\"applyPost.php?id=$row[g_id]\" class=\"btn btn-info\" role=\"button\">Apply</a>" 
-
+                    
                     ?>
                     
                     	
