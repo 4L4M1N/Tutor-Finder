@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Search Tutor</title>
+    <title>Search Tution</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -68,11 +68,11 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Tutor Finder</a>
+      <a class="navbar-brand" href="#">WebSiteName</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="guardian.php">Home</a></li>
-      <li><a href="searchTutor.php">Search Tutor</a></li>
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
       <li><a href="#">Page 2</a></li>
       <li><a href="#">Page 3</a></li>
     </ul>
@@ -81,28 +81,36 @@
 
 <div class="sidenav">
         
-<h3>Search Options</h3>
+        <h3>Search Options</h3>
         <br>
         <div class="form-group">
-        <form action="#" method="post">
         <label for="sel1">Search By Divisions:</label>
-        <select class="form-control" name="searchDivi">
-                        <option value="all" selected>[choose yours]</option>
-                        <option value="Dhaka">Dhaka</option>
-                        <option value="Chittagong">Chittagong</option>
-                        <option value="Rajshahi">Rajshahi</option>
-                        <option value="Rangpur">Rangpur</option>
-                        <option value="Syleht">Syleht</option>
-                        <option value="Barisal">Barisal</option>
-                        <option value="Khulna">Khulna</option>
+        <select class="form-control" id="searchDivi">
+            <option>Dhaka</option>
+            <option>Chittagong</option>
+            <option>Khulna</option>
+            <option>Rangpur</option>
+            <option>Barisal</option>
+            <option>Sylet</option>
+            <option>Rajshahi</option>
         </select>
         
         </div> 
+        <input type="submit" class="btn btn-info" value="Search">
         
+
+        <div class="form-group">
+        <br>
+        <label for="sel1">Search By Medium:</label>
+        <select class="form-control" id="searchMedium">
+            <option>1</option>
+            <option>Bangla</option>
+            <option>English</option>
+            
+        </select>
         
-       
-        <input type="submit" name="submit" class="btn btn-info" value="Search">
-</form>
+        </div> 
+        <input type="submit" class="btn btn-info" value="Search">
 
 
 </div>
@@ -117,29 +125,8 @@ $bootstrapColWidth = 12 / $numOfCols;
 
 <div class="row">
 		
-<?php
-            if(isset($_POST['submit']))
-            {
-                $division = $_POST['searchDivi'];
-                if($division == "all"){$test = "all";}
-                else{
-                $test = "one";}
-            }else {
-                $test="all";
-            }
-            
-            $sql = "SELECT post_id, tutor_id, subjects, medium, salary, divisions, address, dateTime FROM tutor_post";
-            switch($test){
-                case "one":
-                    $sql .= " where divisions ='". $division. "'"; 
-                    break;
-                case "all":
-                    $sql .=""; 
-                    break;    
-                default:
-                    $sql .=" where divisions IS NOT NULL";    
-
-            }
+			<?php
+			$sql = "SELECT post_id, tutor_id, subjects, medium, salary, divisions, address, dateTime FROM tutor_post";
 			$rows = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));			
 			while($row = mysqli_fetch_assoc($rows)){
             ?>
@@ -153,7 +140,7 @@ $bootstrapColWidth = 12 / $numOfCols;
                     <div class="title">
                         <a href="#"><b>Post Id: </b><?php echo $row['post_id']; ?></a>
                     </div>
-					<div class="desc"><b>Guardian Id: </b> <a target="_blank" href="<?php echo "gProfile.php?id=$row[tutor_id]"; ?>"><?php echo $row['tutor_id']; ?></a></div>		
+					<div class="desc"><b>Guardian Id: </b> <a target="_blank" href="<?php echo "gProfile.php?id=$row[g_id]"; ?>"><?php echo $row['g_id']; ?></a></div>		
                     <div class="desc"><b>Subject: </b><?php echo $row['subjects']; ?></div>      
                     <div class="desc"><b>Medium: </b><?php echo $row['medium']; ?></div> 
                     <div class="desc"><b>Salary: </b><?php echo $row['salary']; ?></div> 
@@ -161,7 +148,7 @@ $bootstrapColWidth = 12 / $numOfCols;
                     <div class="desc"><b>Address: </b><?php echo $row['address']; ?></div> 
                     <div class="desc"><b>Post Date: </b><?php echo $row['dateTime']; ?></div> 
                     <?php 
-                    echo "<a href=\"applyPost.php?id=$row[tutor_id]\" class=\"btn btn-info\" role=\"button\">Apply</a>" 
+                    echo "<a href=\"applyPost.php?id=$row[g_id]\" class=\"btn btn-info\" role=\"button\">Apply</a>" 
 
                     ?>
                     
