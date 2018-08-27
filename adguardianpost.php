@@ -22,7 +22,6 @@
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
             background-color: white;
-            
             background-position: 10px 10px;
             background-repeat: no-repeat;
             padding: 12px 20px 12px 40px;

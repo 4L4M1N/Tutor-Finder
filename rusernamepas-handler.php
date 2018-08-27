@@ -7,9 +7,10 @@ $pass=$_POST['pass'];
 $repass=$_POST['repass'];
 $id=$_SESSION['userid'];
 $usertoken=$_SESSION["usr"];
+$userPhone=$_SESSION["phn"];
 if($usertoken == "Tutor")
 {
-$statement="insert into tutor_users(id,username,password) values ('$id','$username','$pass')";
+$statement="insert into tutor_users(id,username,password) values ('$userPhone','$username','$pass')";
 if(mysqli_query($conn,$statement))
 {
     echo "Registration sucessful";
@@ -26,7 +27,7 @@ else{
 }
 else if($usertoken == "Gaurdian")
 {
-$statement="insert into guardian_users(id,username,password) values ('$id','$username','$pass')";
+$statement="insert into guardian_users(id,username,password) values ('$userPhone','$username','$pass')";
 if(mysqli_query($conn,$statement))
 {
     echo "Registration sucessful";
@@ -42,7 +43,7 @@ else{
 }
 else if($usertoken == "Student")
 {
-$statement="insert into students_users(id,username,password) values ('$id','$username','$pass')";
+$statement="insert into students_users(id,username,password) values ('$userPhone','$username','$pass')";
 if(mysqli_query($conn,$statement))
 {
     echo "Registration sucessful";
