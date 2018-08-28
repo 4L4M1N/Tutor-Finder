@@ -71,7 +71,7 @@
       <li class="active"><a href="tutor.php">Home</a></li>
       <li><a href="searchTution.php">Search Tution Guardian</a></li>
       <li><a href="searchTutionstudent.php">Search Tution Student</a></li>
-      <li><a href="#">Profile</a></li>
+      <li><a href="infoupdate.php">Profile</a></li>
     </ul>
   </div>
 </nav>     
