@@ -21,33 +21,71 @@ if(mysqli_query($conn,$statement))
 	header('location:rusernamepas.php');
 }
 else{
-    mysqli_error($conn);}
+    mysqli_error($conn);
+}
     mysqli_close($conn);
 }
 else if($val == "Gaurdian")
 {
-    $statement="insert into guardian_info(fullname,phone,nid,email,address) values ('$fullname','$contact','$nid','$email','$address')";
-    if(mysqli_query($conn,$statement))
+    $sql = "insert into guardian_info(fullname,phone,nid,email,address) values ('$fullname','$contact','$nid','$email','$address');";
+    
+    $sql .= "insert into g_rating(id,rating_value,rating_cnt) values ('$contact',0,0)";
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
+    if ($conn->multi_query($sql) === TRUE) {
+        echo "New records created successfully";
+        header('location:rusernamepas.php');
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+    
+    $conn->close();
+    /*if(mysqli_query($conn,$sql))
     {
+        $statement="insert into g_rating(id,rating_value,rating_cnt) values ('$contact',0,0)";
+        mysqli_query($statement2);
         echo "Registration sucessful";
         header('location:rusernamepas.php');
     }
     else{
-        mysqli_error($conn);}
-        mysqli_close($conn);
+        mysqli_error($conn);
     }
+        mysqli_close($conn);   
+ */
+    
+
+
+}
     else if($val == "Tutor")
     {
-        $statement="insert into tutor_info(fullname,institutionname,phone,email,nid,address) values ('$fullname','$ins','$contact','$email','$nid','$address')";
-        if(mysqli_query($conn,$statement))
+        $sql="insert into tutor_info(fullname,institutionname,phone,email,nid,address) values ('$fullname','$ins','$contact','$email','$nid','$address');";
+        $sql .= "insert into t_rating(id,rating_value,rating_cnt) values ('$contact',0,0)";
+
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        } 
+        if ($conn->multi_query($sql) === TRUE) {
+            echo "New records created successfully";
+            header('location:rusernamepas.php');
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+        
+        $conn->close();
+       
+       
+        /* if(mysqli_query($conn,$statement))
         {
             //echo "Registration sucessful";
             header('location:rusernamepas.php');
         }
         else{
-            mysqli_error($conn);}
-            mysqli_close($conn);
+            mysqli_error($conn);
         }
+            mysqli_close($conn);*/
+    }
         else
         {
             echo "somesthing went wrong";

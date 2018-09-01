@@ -12,6 +12,7 @@
 				if (mysqli_num_rows($result) == 1)
 			   {
 				   $_SESSION['un'] = $un;
+				   $_SESSION['name'] = $val;
 				   header("location:student.php");
 			   }
 			   else
@@ -27,6 +28,7 @@
 				if (mysqli_num_rows($result) == 1)
 				{
 					$_SESSION['un'] = $un;
+					$_SESSION['name'] = $val;
 					header("location:guardian.php");
 				}
 				else
@@ -43,6 +45,7 @@
 				if (mysqli_num_rows($result) == 1)
 				{
 					$_SESSION['un'] = $un;
+					$_SESSION['name'] = $val;
 					header("location:tutor.php");
 				}
 				else
@@ -59,6 +62,7 @@
 				if (mysqli_num_rows($result) == 1)
 				{
 					$_SESSION['un'] = $un;
+					$_SESSION['name'] = $val;
 					header("location:listdata.php");
 				}
 				else

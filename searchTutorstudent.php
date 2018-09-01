@@ -71,8 +71,8 @@
       <a class="navbar-brand" href="#">Tutor Finder</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="guardian.php">Home</a></li>
-      <li><a href="searchTutor.php">Search Tutor</a></li>
+      <li class="active"><a href="student.php">Home</a></li>
+      <li><a href="searchTutorstudent.php">Search Tutor</a></li>
       <li><a href="#">Page 2</a></li>
       <li><a href="#">Page 3</a></li>
     </ul>
