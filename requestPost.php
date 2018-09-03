@@ -13,7 +13,7 @@
 
     }
 
-    $statement="insert into apply_g_post(post_id,g_id,tutor_id) values ('$post_id','$data','$userId')";
+    $statement="insert into request_tutor(post_id,t_id,g_id) values ('$post_id','$data','$userId')";
     if(mysqli_query($conn,$statement))
     {
         echo "You Have Applied sucessfully";

@@ -1,5 +1,6 @@
 <?php
     require 'config.php';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -71,10 +72,11 @@
       <a class="navbar-brand" href="#">Tutor Finder</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="guardian.php">Home</a></li>
-      <li><a href="searchTutor.php">Search Tutor</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
+     <li><a href="guardian.php">Guardian</a></li>
+     <li class="active"><a href="searchTutor.php">Search Tutor</a></li>
+      <li><a href="guardianPanel.php">Guardian Panel</a></li>
+      <li><a href="#">Account Settings</a></li>
+      <li><a href="logout.php"><?php echo '<span>&#10060</span>'?> Logout</a></li>
     </ul>
   </div>
 </nav>
@@ -153,15 +155,15 @@ $bootstrapColWidth = 12 / $numOfCols;
                     <div class="title">
                         <a href="#"><b>Post Id: </b><?php echo $row['post_id']; ?></a>
                     </div>
-					<div class="desc"><b>Guardian Id: </b> <a target="_blank" href="<?php echo "gProfile.php?id=$row[tutor_id]"; ?>"><?php echo $row['tutor_id']; ?></a></div>		
-                    <div class="desc"><b>Subject: </b><?php echo $row['subjects']; ?></div>      
+					<div class="desc"><b>Tutor Id: </b> <a target="_blank" href="<?php echo "tProfile.php?id=$row[tutor_id]"; ?>"><?php echo $row['tutor_id']; ?></a></div>		
+                    <div class="desc"><b>Interested Subject: </b><?php echo $row['subjects']; ?></div>      
                     <div class="desc"><b>Medium: </b><?php echo $row['medium']; ?></div> 
                     <div class="desc"><b>Salary: </b><?php echo $row['salary']; ?></div> 
                     <div class="desc"><b>Division: </b><?php echo $row['divisions']; ?></div> 
                     <div class="desc"><b>Address: </b><?php echo $row['address']; ?></div> 
                     <div class="desc"><b>Post Date: </b><?php echo $row['dateTime']; ?></div> 
                     <?php 
-                    echo "<a href=\"applyPost.php?id=$row[tutor_id]\" class=\"btn btn-info\" role=\"button\">Apply</a>" 
+                    echo "<a href=\"requestTutor.php?id=$row[tutor_id]&post=$row[post_id]\" class=\"btn btn-info\" role=\"button\">Request</a>" 
 
                     ?>
                     

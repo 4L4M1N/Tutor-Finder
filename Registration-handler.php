@@ -18,7 +18,8 @@ $statement="insert into student_info(fullname,institutionname,g_phone,email,addr
 if(mysqli_query($conn,$statement))
 {
     echo "Registration sucessful";
-	header('location:rusernamepas.php');
+    header('location:rusernamepas.php');
+    
 }
 else{
     mysqli_error($conn);
