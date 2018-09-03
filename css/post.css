@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+.container {
+  padding-top: 100px;
+}
 form { 
   margin: 0 auto; 
   width:600px;

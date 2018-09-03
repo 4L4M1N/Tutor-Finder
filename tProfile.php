@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Show Info and Rating</title>
+    <title>Tutor Info and Rating</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -124,11 +124,11 @@
                 $rate = $_POST['rate'];
             }
             
-            $sql = "SELECT * FROM g_rating where g_id =$data AND rater_id =$userid";
+            $sql = "SELECT * FROM t_rating where t_id =$data AND rater_id =$userid";
             $boolResult = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
             $rowResult = mysqli_num_rows($boolResult);
             if($rowResult == 0 && $rate == 0) {
-                echo '<span style="color:red;">Rate Guardian</span>';
+                echo '<span style="color:red;">Rate Teacher</span>';
             }
             else if($rowResult == 0)
             /*$rateDB = 0;
@@ -142,7 +142,7 @@
             $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
              */
             {
-                $statement = "INSERT INTO g_rating(rating_value, rater_id, g_id) VALUES ('$rate', '$userid', '$data')";
+                $statement = "INSERT INTO t_rating(rating_value, rater_id, t_id) VALUES ('$rate', '$userid', '$data')";
                 if(mysqli_query($conn,$statement)){
                     echo '<span style="color:red;">Submitted Rating</span>';
                    
@@ -179,7 +179,7 @@
 		<div class="col-lg-3 col-sm-6">
 			<?php
              //$sql = "SELECT fullname, phone, nid, email, address FROM guardian_info where phone =$data";
-             $sql = "SELECT a.fullname, a.phone, a.nid, a.email, a.address, count(a.phone)as total, sum(b.rating_value)as total_rate FROM guardian_info a, g_rating b where a.phone = b.g_id and a.phone =$data and b.g_id =$data";
+             $sql = "SELECT a.fullname, a.institutionname, a.phone, a.email, a.nid, a.address, count(a.phone)as total, sum(b.rating_value)as total_rate FROM tutor_info a, t_rating b where a.phone = b.t_id and a.phone =$data and b.t_id =$data";
 			$resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));			
 			while( $record = mysqli_fetch_array($resultset) ) {
 			?>
@@ -193,7 +193,8 @@
                     <div class="title">
                         <a href="#"><?php echo $record['fullname']; ?></a>
                     </div>
-                    <div class="desc"><b>Phone: </b><?php echo $record['phone']; ?></div>
+                    <div class="desc"><b>Institution Name: </b><?php echo $record['institutionname']; ?></div>
+                    <div class="desc"><b>Phone: </b><?php echo $record['phone']; ?></div> 
                     <div class="desc"><b>Email: </b><?php echo $record['email']; ?></div> 
                     <div class="desc"><b>Nid No: </b><?php echo $record['nid']; ?></div> 
                     <div class="desc"><b>Address: </b><?php echo $record['address']; ?></div> 
@@ -214,7 +215,7 @@
                     
                     </div>
                     <?php 
-                    echo "<a href=\"applyPost.php?\" class=\"btn btn-info\" role=\"button\">Call</a>" 
+                    echo "<a href=\"request.php?\" class=\"btn btn-info\" role=\"button\">Call</a>" 
                     ?>
                 </div>
             </div>

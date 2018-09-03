@@ -68,13 +68,16 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Tutor Finder</a>
+      <a class="navbar-brand" href="#">WebSiteName</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="tutor.php">Home</a></li>
+    <li class="active"><a href="tutor.php">Tutor</a></li>
       <li><a href="searchTution.php">Search Tution Guardian</a></li>
       <li><a href="searchTutionstudent.php">Search Tution Student</a></li>
-      <li><a href="#">Page 3</a></li>
+      <li><a href="post.php">Create Post</a></li>
+      <li><a href="tutorPanel">Tutor Panel</a></li>
+      <li><a href="#">Account Settings</a></li>
+      <li><a href="logout.php"><?php echo '<span>&#10060</span>'?> Logout</a></li>
     </ul>
   </div>
 </nav>

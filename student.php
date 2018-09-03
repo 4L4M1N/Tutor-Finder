@@ -1,3 +1,11 @@
+<?php
+    
+    session_start();
+    if(!(isset($_SESSION['un'])) && !(isset($_SESSION['name']))){
+        header("location:login.php");
+    }
+    
+?>
 <!DOCTYPE <!DOCTYPE html>
 <html>
 <head>
@@ -68,14 +76,14 @@
       <a class="navbar-brand" href="#">Tutor Finder</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="student.php">Home</a></li>
-      <li><a href="searchTutorstudent.php">Search Tutor</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
+      <li class="active"><a href="student.php">Student</a></li>
+      <li><a href="searchTutorStudent.php">search Tution</a></li>
+      <li><a href="sgpost.php">Create Post</a></li>
+      <li><a href="infoupdate.php">Account Settings</a></li>
+      <li><a href="logout.php"><?php echo '<span>&#10060</span>'?> Logout</a></li>
     </ul>
   </div>
-</nav>
-      
+</nav>     
       <script>
       function myFunction() {
           var x = document.getElementById("myTopnav");
