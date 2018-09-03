@@ -1,5 +1,5 @@
 <?php
-    
+    require 'config.php';
     session_start();
     if(!(isset($_SESSION['un'])) && !(isset($_SESSION['name']))){
         header("location:login.php");
