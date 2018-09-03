@@ -24,12 +24,7 @@
       <a class="navbar-brand" href="#">Tutor Finder</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="tutor.php">Student</a></li>
-      <li><a href="searchTutorStudent.php">search Tutor</a></li>
-      <li class="active"><a href="post.php">Create Post</a></li>
-      
-      <li><a href="#">Student Panel</a></li>
-      <li><a href="#">Account Settings</a></li>
+      <li class="active"><a href="sgpost.php">Create Post</a></li>
       <li><a href="logout.php"><?php echo '<span>&#10060</span>'?> Logout</a></li>
     </ul>
   </div>

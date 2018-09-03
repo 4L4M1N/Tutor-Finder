@@ -76,7 +76,7 @@
       <li><a href="searchTution.php">search Tution</a></li>
       <li><a href="post.php">Create Post</a></li>
       <li class="active"><a href="tutorPanel.php">Tutor Panel</a></li>
-      <li><a href="#">Account Settings</a></li>
+      <li><a href="infoupdate.php">Account Settings</a></li>
       <li><a href="logout.php"><?php echo '<span>&#10060</span>'?> Logout</a></li>
     </ul>
   </div>

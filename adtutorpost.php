@@ -69,7 +69,7 @@
         <ul class="nav navbar-nav">
             <li class="active"><a href="adtutorpost.php">Tutor Post</a></li>
             <li><a href="adstudentpost.php">Student Post</a></li>
-            <li><a href="#logoutm.php">Guardian Post</a></li>
+            <li><a href="adguardianpost.php">Guardian Post</a></li>
             <li><a href="logout.php"><?php echo '<span>&#10060</span>'?> Logout</a></li>
             <?php if(isset($_SESSION['un'])){
                 $un= $_SESSION['un'];
