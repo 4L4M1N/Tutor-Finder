@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 require 'config.php';
@@ -30,7 +31,7 @@ else if($val == "Gaurdian")
 {
     $sql = "insert into guardian_info(fullname,phone,nid,email,address) values ('$fullname','$contact','$nid','$email','$address');";
     
-    $sql .= "insert into g_rating(id,rating_value,rating_cnt) values ('$contact',0,0)";
+    $sql .= "insert into g_rating(rating_value,rater_id,g_id) values (1,'$contact','$contact')";
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -62,7 +63,7 @@ else if($val == "Gaurdian")
     else if($val == "Tutor")
     {
         $sql="insert into tutor_info(fullname,institutionname,phone,email,nid,address) values ('$fullname','$ins','$contact','$email','$nid','$address');";
-        $sql .= "insert into t_rating(id,rating_value,rating_cnt) values ('$contact',0,0)";
+        $sql .= "insert into t_rating(rating_value,rater_id,t_id) values (1,'$contact','$contact')";
 
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
@@ -91,7 +92,4 @@ else if($val == "Gaurdian")
         {
             echo "somesthing went wrong";
         }
-    
-
-
 ?>
