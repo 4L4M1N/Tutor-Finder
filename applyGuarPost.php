@@ -88,7 +88,7 @@
             </div>
             <ul class="nav navbar-nav">
             <li><a href="tutor.php">Tutor</a></li>
-            <li class="active"><a href="searchTution.php">Search Tution</a></li>
+            <li><a href="searchTution.php">Search Tution</a></li>
             <li><a href="tutorPanel.php">Tutor Panel</a></li>
             <li class="active"><a href="applyGuarPost.php">Apply</a></li>
             <li><a href="logout.php"><?php echo '<span>&#10060</span>'?> Logout</a></li>
