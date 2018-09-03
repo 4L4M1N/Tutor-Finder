@@ -38,10 +38,6 @@
   	<div class="input-group">
   	  <button type="submit" class="btn" name="log_user">Log In</button>
   	</div>
-    
-    <p>
-  	 Not yet a member? <a href="Registration.php">Sign Up</a>
-  	</p>
   </form>
 </body>
 </html>

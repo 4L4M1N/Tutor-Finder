@@ -1,5 +1,9 @@
 <?php
     require 'config.php';
+    session_start();
+    if(!(isset($_SESSION['un'])) && !(isset($_SESSION['name']))){
+        header("location:login.php");
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,11 +13,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    
-    
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
-    
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -48,7 +49,7 @@
 
 .done {
    
-    margin-left: 400px; /* Same width as the sidebar + left position in px */
+    margin-left: 380px; /* Same width as the sidebar + left position in px */
     font-size: 28px; /* Increased text to enable scrolling */
     padding: 0px 10px;
 }
@@ -68,50 +69,44 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="#">Tutor Finder</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
-    </ul>
+    <li class="active"><a href="tutor.php">Tutor</a></li>
+      <li><a href="searchTution.php">Search Tution Guardian</a></li>
+      <li><a href="searchTutionstudent.php">Search Tution Student</a></li>
+      <li><a href="post.php">Create Post</a></li>
+      <li><a href="tutorPanel">Tutor Panel</a></li>
+      <li><a href="#">Account Settings</a></li>
+      <li><a href="logout.php"><?php echo '<span>&#10060</span>'?> Logout</a></li>
+      </ul>
   </div>
-</nav>
+</nav> 
 
 <div class="sidenav">
         
         <h3>Search Options</h3>
         <br>
         <div class="form-group">
+        <form action="#" method="post">
         <label for="sel1">Search By Divisions:</label>
-        <select class="form-control" id="searchDivi">
-            <option>Dhaka</option>
-            <option>Chittagong</option>
-            <option>Khulna</option>
-            <option>Rangpur</option>
-            <option>Barisal</option>
-            <option>Sylet</option>
-            <option>Rajshahi</option>
+        <select class="form-control" name="searchDivi">
+                        <option value="all" selected>[choose yours]</option>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Chittagong">Chittagong</option>
+                        <option value="Rajshahi">Rajshahi</option>
+                        <option value="Rangpur">Rangpur</option>
+                        <option value="Syleht">Syleht</option>
+                        <option value="Barisal">Barisal</option>
+                        <option value="Khulna">Khulna</option>
         </select>
         
         </div> 
-        <input type="submit" class="btn btn-info" value="Search">
         
-
-        <div class="form-group">
-        <br>
-        <label for="sel1">Search By Medium:</label>
-        <select class="form-control" id="searchMedium">
-            <option>1</option>
-            <option>Bangla</option>
-            <option>English</option>
-            
-        </select>
         
-        </div> 
-        <input type="submit" class="btn btn-info" value="Search">
-
+       
+        <input type="submit" name="submit" class="btn btn-info" value="Search">
+</form>
 
 </div>
 
@@ -126,7 +121,28 @@ $bootstrapColWidth = 12 / $numOfCols;
 <div class="row">
 		
 			<?php
-			$sql = "SELECT post_id, g_id, subjects, medium, salary, divisions, address, dateTime FROM g_post";
+            if(isset($_POST['submit']))
+            {
+                $division = $_POST['searchDivi'];
+                if($division == "all"){$test = "all";}
+                else{
+                $test = "one";}
+            }else {
+                $test="all";
+            }
+            
+            $sql = "SELECT post_id, g_id, subjects, medium, salary, divisions, address, dateTime FROM g_post";
+            switch($test){
+                case "one":
+                    $sql .= " where divisions ='". $division. "'"; 
+                    break;
+                case "all":
+                    $sql .=""; 
+                    break;    
+                default:
+                    $sql .=" where divisions IS NOT NULL";    
+
+            }
 			$rows = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));			
 			while($row = mysqli_fetch_assoc($rows)){
             ?>
@@ -148,12 +164,9 @@ $bootstrapColWidth = 12 / $numOfCols;
                     <div class="desc"><b>Address: </b><?php echo $row['address']; ?></div> 
                     <div class="desc"><b>Post Date: </b><?php echo $row['dateTime']; ?></div> 
                     <?php 
-                    echo "<a href=\"applyPost.php?id=$row[g_id]\" class=\"btn btn-info\" role=\"button\">Apply</a>" 
-
-                    ?>
+                    echo "<a href=\"applyGuarPost.php?id=$row[g_id]&post=$row[post_id]\" class=\"btn btn-info\" role=\"button\">Apply</a>" 
                     
-                    	
-                    							
+                    ?>			
                 </div>
             </div>
 			

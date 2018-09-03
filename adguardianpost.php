@@ -67,11 +67,11 @@
             <a class="navbar-brand" href="#index.php">Tutor Finder</a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="#home.php">Insert data</a></li>
-            <li><a href="#viewdata.php">View data</a></li>
+ 
             <li><a href="adtutorpost.php">Tutor Post</a></li>
             <li><a href="adstudentpost.php">Student Post</a></li>
             <li class="active"><a href="adguardianpost.php">Guardian Post</a></li>
+            <li><a href="logout.php"><?php echo '<span>&#10060</span>'?> Logout</a></li>
             
             <?php if(isset($_SESSION['un'])){
                 $un= $_SESSION['un'];

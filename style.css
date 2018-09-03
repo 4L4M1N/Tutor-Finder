@@ -228,7 +228,7 @@
 
 .card.hovercard .info .desc {
     overflow: hidden;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 20px;
     color: #737373;
     text-overflow: ellipsis;

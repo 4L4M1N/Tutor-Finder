@@ -3,38 +3,29 @@
 <head>
   <title>Tutor Post</title>
   <link rel="stylesheet" type="text/css" href="css/post.css">
-  <link rel="stylesheet" type="text/css" href="css/common.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  
+
   <script src="js/post.js"></script>
 </head>
 <body>
 
-        <div class="topnav" id="myTopnav">
-                <a href="#home">Home</a>
-                <a href="#job">Search Tution</a>
-                <a href="#post" class="active">Post</a>
-                <a href="#profile">My Profile</a>
-                <a href="#contact">Contact</a>
-                <a href="#about">About</a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                  <i class="fa fa-bars"></i>
-                </a>
-              </div>
-            
-              <div style="padding-left:16px">
-                <h2>Responsive Topnav Example</h2>
-               
-              </div>
-              
-              <script>
-              function myFunction() {
-                  var x = document.getElementById("myTopnav");
-                  if (x.className === "topnav") {
-                      x.className += " responsive";
-                  } else {
-                      x.className = "topnav";
-                  }
-              }
-              </script>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Tutor Finder</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="tutor.php">Tutor</a></li>
+      <li><a href="searchTution.php">search Tution</a></li>
+      <li class="active"><a href="post.php">Create Post</a></li>
+      
+      <li><a href="tutorPanel.php">Tutor Panel</a></li>
+      <li><a href="#">Account Settings</a></li>
+      <li><a href="logout.php"><?php echo '<span>&#10060</span>'?> Logout</a></li>
+    </ul>
+  </div>
+</nav> 
 
 
 
