@@ -77,8 +77,8 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="student.php">Student</a></li>
-      <li><a href="searchTutorStudent.php">search Tution</a></li>
-      <li><a href="sgpost.php">Create Post</a></li>
+      <li><a href="searchTutorstudent.php">search Tutor</a></li>
+      <li><a href="sgpost.php" target="_blank">Create Post</a></li>
       <li><a href="infoupdate.php">Account Settings</a></li>
       <li><a href="logout.php"><?php echo '<span>&#10060</span>'?> Logout</a></li>
     </ul>
