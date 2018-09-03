@@ -87,12 +87,11 @@
             <a class="navbar-brand" href="#">WebSiteName</a>
             </div>
             <ul class="nav navbar-nav">
-            <li><a href="guardian.php">Guardian</a></li>
-            <li class="active"><a href="searchTutor.php">Search Tutor</a></li>
-            <li><a href="guardianPanel.php">Guardian Panel</a></li>
-            <li><a href="#">Account Settings</a></li>
+            <li><a href="tutor.php">Tutor</a></li>
+            <li class="active"><a href="searchTution.php">Search Tution</a></li>
+            <li><a href="tutorPanel.php">Tutor Panel</a></li>
+            <li class="active"><a href="applyGuarPost.php">Apply</a></li>
             <li><a href="logout.php"><?php echo '<span>&#10060</span>'?> Logout</a></li>
-            <li class="active"><a href="#">Apply</a></li>
 
             </ul>
         </div>
