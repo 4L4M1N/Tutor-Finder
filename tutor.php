@@ -1,5 +1,5 @@
 <?php
-    
+    require 'config.php';
     session_start();
     if(!(isset($_SESSION['un'])) && !(isset($_SESSION['name']))){
         header("location:login.php");
@@ -86,15 +86,55 @@
     </ul>
   </div>
 </nav>     
-      <script>
-      function myFunction() {
-          var x = document.getElementById("myTopnav");
-          if (x.className === "topnav") {
-              x.className += " responsive";
-          } else {
-              x.className = "topnav";
-          }
-      }
-      </script>
+
+<?php
+    $user = $_SESSION['un'];
+
+?>
+
+<div class="done">
+	<div class="row">
+		<div class="col-sm-6">
+			<?php
+             //$sql = "SELECT fullname, phone, nid, email, address FROM guardian_info where phone =$data";
+             $sql = "SELECT a.fullname, a.institutionname, a.phone, a.email, a.nid, a.address, count(a.phone)as total, sum(b.rating_value)as total_rate FROM tutor_info a, t_rating b where a.phone = b.t_id and a.phone =$user and b.t_id =$user";
+			$resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));			
+			while( $record = mysqli_fetch_array($resultset) ) {
+			?>
+            <div class="card hovercard">
+                <div class="cardheader">               
+					<div class="avatar">
+						<img alt="gone" src="gone.png">
+					</div>
+				 </div>
+                <div class="card-body info">
+                    <div class="title">
+                        <?php echo $record['fullname']; ?>
+                    </div>
+                    <div class="desc"><b>Institution Name: </b><?php echo $record['institutionname']; ?></div>
+                    <div class="desc"><b>Phone: </b><?php echo $record['phone']; ?></div> 
+                    <div class="desc"><b>Email: </b><?php echo $record['email']; ?></div> 
+                    <div class="desc"><b>Nid No: </b><?php echo $record['nid']; ?></div> 
+                    <div class="desc"><b>Address: </b><?php echo $record['address']; ?></div> 
+                    <div class="desc"><b>Total Users rated: </b><?php echo $record['total']; ?></div> 
+                    <div class="desc"><b>Total Rate: </b><?php echo $record['total_rate']; ?></div> 
+                    <div class="desc"><b>Your Rating: </b></div>
+                    <div class="rating">
+                    <?php
+                        $one = $record['total_rate'];
+                        $two = $record['total'];
+                        $rateResult = (int) ($one / $two);
+                        for($i=1; $i<=$rateResult; $i++){
+                           echo '<span>&#9734</span>'; 
+                        }
+                    ?>
+                    </div>
+                </div>
+            </div>
+			<?php } ?>
+        </div>
+	</div>	
+</div> 
+
 </body>
 </html>

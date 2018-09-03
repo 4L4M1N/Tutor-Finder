@@ -157,20 +157,13 @@ $bootstrapColWidth = 12 / $numOfCols;
                     <div class="title">
                         <a href="#"><b>Post Id: </b><?php echo $row['post_id']; ?></a>
                     </div>
-					<div class="desc"><b>Student Id: </b> <a target="_blank" href="<?php echo "gProfile.php?id=$row[st_id]"; ?>"><?php echo $row['st_id']; ?></a></div>		
+					<div class="desc"><b>Phone No: </b> <?php echo $row['st_id']; ?></div>	
                     <div class="desc"><b>Subject: </b><?php echo $row['subjects']; ?></div>      
                     <div class="desc"><b>Medium: </b><?php echo $row['medium']; ?></div> 
                     <div class="desc"><b>Salary: </b><?php echo $row['salary']; ?></div> 
                     <div class="desc"><b>Division: </b><?php echo $row['divisions']; ?></div> 
                     <div class="desc"><b>Address: </b><?php echo $row['address']; ?></div> 
-                    <div class="desc"><b>Post Date: </b><?php echo $row['dateTime']; ?></div> 
-                    <?php 
-                    echo "<a href=\"applyPost.php?id=$row[st_id]\" class=\"btn btn-info\" role=\"button\">Apply</a>" 
-
-                    ?>
-                    
-                    	
-                    							
+                    <div class="desc"><b>Post Date: </b><?php echo $row['dateTime']; ?></div> 				
                 </div>
             </div>
 			
