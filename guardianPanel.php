@@ -79,7 +79,7 @@
      <li><a href="searchTutor.php">Search Tutor</a></li>
      <li class="active"><a href="guardianPanel.php">Guardian Panel</a></li>
       
-      <li><a href="infoupdate.php">Account Settings</a></li>
+      <li><a href="infoGuar.php">Account Settings</a></li>
       <li><a href="logout.php"><?php echo '<span>&#10060</span>'?> Logout</a></li>
     </ul>
   </div>

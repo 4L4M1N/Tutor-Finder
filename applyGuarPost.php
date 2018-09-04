@@ -141,8 +141,8 @@
             
             <div class="card-body">
             <div class="desc">    Total request on this post:<p style="color:red; text-align:center;"><?php echo $count; ?></p></div>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <p class="card-text"></p>
+            <p class="card-text"><small class="text-muted"></small></p>
             <br>
             <?php
             $sql5 = "SELECT * FROM apply_g_post where post_id = $post_id  AND tutor_id = $userId";
