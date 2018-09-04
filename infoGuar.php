@@ -81,16 +81,16 @@
       <a class="navbar-brand" href="#">Tutor Finder</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="tutor.php">Tutor</a></li>
-      <li><a href="searchTution.php">Search Tution Guardian</a></li>
-      <li><a href="searchTutionstudent.php">Search Tution Student</a></li>
-      <li><a href="post.php">Create Post</a></li>
-      <li><a href="tutorPanel.php">Tutor Panel</a></li>
-      <li class="active"><a href="infoupdate.php">Account Settings</a></li>
+      <li><a href="guardian.php">Guardian</a></li>
+      <li><a href="searchTutor.php">Search Tutor</a></li>
+      <li><a href="sgpost.php" target="_blank">Create Post</a></li>
+      <li><a href="guardianPanel.php">Guardian Panel</a></li>
+
+      <li class="active"><a href="infoGuar.php">Account Settings</a></li>
       <li><a href="logout.php"><?php echo '<span>&#10060</span>'?> Logout</a></li>
-      </ul>
+    </ul>
   </div>
-</nav> 
+</nav>
 
 
 </div>

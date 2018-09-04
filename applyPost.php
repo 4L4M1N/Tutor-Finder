@@ -17,7 +17,7 @@
     if(mysqli_query($conn,$statement))
     {
         echo "You Have Applied sucessfully";
-        //header('location:rusernamepas.php');
+        header("refresh:3;url=searchTution.php");
         
     }
     else{
